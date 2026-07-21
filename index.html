@@ -393,12 +393,6 @@
       </div>
     </div>
     <div>
-      <!--
-        NETLIFY FORMS
-        This form works automatically once deployed to Netlify — no backend needed.
-        Submissions appear in your Netlify dashboard under Site → Forms.
-        Do not remove data-netlify="true" or the hidden form-name input.
-      -->
       <form class="inquiry" name="project-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="inquiryForm">
         <input type="hidden" name="form-name" value="project-inquiry" />
         <p class="hp-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -502,21 +496,13 @@ const industries = [
 
 /* ------------------------------------------------------------
    FEATURED WORK / CASE STUDIES
-   Fields:
-     title, category ("food"|"real-estate"|"product"|"coffee"|"skincare"|"fashion"|"automotive")
-     stage ("concept"|"final")
-     image: path to your jpg (e.g. "images/penthouse-final.jpg") or null for placeholder
-     desc: one-line card description
-     overview, objective, challenge, direction: case study copy
-     palette: array of hex colors for swatches
-     isConcept: true if this should be flagged "Independent Creative Concept"
-   TO ADD A PROJECT: copy one object below, edit the fields, drop your jpg in /images.
    ------------------------------------------------------------ */
 const caseStudies = [
   {
     id: "penthouse-twilight",
     title: "Skyline Penthouse — Twilight Listing",
-    category: "real-estate", stage: "final", image: null,
+    category: "real-estate", stage: "final", 
+    image: "images/penthouse.jpg",
     desc: "Listing photo reimagined as a twilight hero frame.",
     overview: "A daytime listing photo was rebuilt into a warm, twilight-toned hero image for a luxury penthouse marketing package.",
     objective: "Give the listing a campaign-quality first impression that reads as aspirational rather than transactional.",
@@ -528,7 +514,8 @@ const caseStudies = [
   {
     id: "coffee-origin",
     title: "Origin Roasters — Bag Campaign",
-    category: "coffee", stage: "final", image: null,
+    category: "coffee", stage: "final", 
+    image: "images/bag-campaign.jpg",
     desc: "Product flat-lay elevated into an editorial campaign frame.",
     overview: "A simple bag-of-coffee product shot was directed into an editorial-style campaign visual for social and print.",
     objective: "Position the roaster as a premium, design-forward brand rather than a commodity product.",
@@ -540,7 +527,8 @@ const caseStudies = [
   {
     id: "skincare-still",
     title: "Still — Skincare Launch Visual",
-    category: "skincare", stage: "concept", image: null,
+    category: "skincare", stage: "concept", 
+    image: "images/skincare.jpg",
     desc: "Concept direction for a minimalist skincare launch.",
     overview: "A concept exploration for a fictional skincare launch, built to demonstrate Koi Studio's creative direction for the beauty category.",
     objective: "Establish a calm, clinical-but-warm visual language suited to a premium skincare line.",
@@ -552,7 +540,8 @@ const caseStudies = [
   {
     id: "ramen-hero",
     title: "Golden Hour Ramen",
-    category: "food", stage: "final", image: null,
+    category: "food", stage: "final", 
+    image: "images/ramen.jpg",
     desc: "A plated dish turned into a hero ad frame.",
     overview: "A straightforward bowl photo was directed into a warm, appetite-forward hero image for restaurant advertising.",
     objective: "Create a single hero frame strong enough to anchor a restaurant's social and delivery-app presence.",
@@ -564,7 +553,8 @@ const caseStudies = [
   {
     id: "sneaker-drop",
     title: "Studio Sneaker Drop",
-    category: "product", stage: "final", image: null,
+    category: "product", stage: "final", 
+    image: "images/sneaker.png",
     desc: "Flat lay turned into a campaign-ready product visual.",
     overview: "A flat product photo was rebuilt into a dynamic campaign visual suited for a limited-edition sneaker drop.",
     objective: "Give a single product shot enough energy to function as the lead image of a full launch campaign.",
@@ -576,7 +566,8 @@ const caseStudies = [
   {
     id: "automotive-concept",
     title: "Nightfall — Automotive Concept",
-    category: "automotive", stage: "concept", image: null,
+    category: "automotive", stage: "concept", 
+    image: "images/automotive.jpg",
     desc: "Speculative campaign direction for an automotive brand.",
     overview: "An independent concept built to show how Koi Studio would approach a cinematic automotive campaign.",
     objective: "Demonstrate a moody, cinematic direction suited to a premium or performance automotive brand.",
@@ -602,7 +593,6 @@ const traits = [
   "International Perspective","Designed for Modern Marketing"
 ];
 
-/* Placeholder testimonials — swap in real client quotes once available. */
 const testimonials = [
   { quote:"Koi Studio understood our brand's positioning before we'd even finished explaining it.", cite:"Placeholder — Boutique Hospitality Client" },
   { quote:"The concept work alone was sharper than campaigns we've paid agencies ten times as much for.", cite:"Placeholder — Consumer Product Brand" },
@@ -738,7 +728,7 @@ faqList.querySelectorAll(".faq-item").forEach(item => {
   item.querySelector(".faq-q").addEventListener("click", () => item.classList.toggle("open"));
 });
 
-/* contact form — AJAX submit to Netlify Forms, no page reload */
+/* contact form */
 const form = document.getElementById("inquiryForm");
 const formNote = document.getElementById("formNote");
 form.addEventListener("submit", function(e){
